@@ -105,7 +105,7 @@ public class FenLeiAdapter extends RecyclerView.Adapter<FenLeiAdapter.ViewHolder
         holder.itemHomeRvCiThree.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (((String) v.getTag()).equals("更多")) {
+                if (((String) holder.itemHomeRvTvThree.getTag()).equals("更多")) {
                     Bundle bundle = new Bundle();
                     bundle.putString("pass", (String) holder.itemHomeRvTvThree.getTag());
                     Intent intent = new Intent(context, MoreActivity.class);
@@ -113,7 +113,7 @@ public class FenLeiAdapter extends RecyclerView.Adapter<FenLeiAdapter.ViewHolder
                     context.startActivity(intent);
                 } else {
                     Bundle bundle = new Bundle();
-                    bundle.putString("pass", (String) v.getTag());
+                    bundle.putString("pass", (String) holder.itemHomeRvTvThree.getTag());
                     Intent intent = new Intent(context, FindActivity.class);
                     intent.putExtras(bundle);
                     context.startActivity(intent);
