@@ -221,6 +221,4 @@ public class LeadActivity extends MyBaseActivity {
         list.add(view2);
         animation = MyAnimUtils.loadAnimation(this, R.anim.alpha);
     }
-
-
 }

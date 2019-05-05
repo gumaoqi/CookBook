@@ -5,10 +5,10 @@
     android:background="@color/pink"
     android:orientation="vertical">
 
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="2dp"
-        android:background="@color/black" />
+    <!--<ImageView-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="2dp"-->
+        <!--android:background="@color/black" />-->
 
     <TextView
         android:id="@+id/item_more_tv_one"

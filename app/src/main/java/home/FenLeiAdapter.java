@@ -52,10 +52,20 @@ public class FenLeiAdapter extends RecyclerView.Adapter<FenLeiAdapter.ViewHolder
     }
 
     @Override
-    public void onBindViewHolder(ViewHolder holder, int position) {
+    public void onBindViewHolder(final ViewHolder holder, int position) {
         holder.itemHomeRvCiOne.setImageResource(list.get(3 * position).getImgID());
         holder.itemHomeRvTvOne.setTag(list.get(3 * position).getName());
         holder.itemHomeRvTvOne.setText(list.get(3 * position).getName());
+        holder.itemHomeRvCiOne.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Bundle bundle = new Bundle();
+                bundle.putString("pass", (String) holder.itemHomeRvTvOne.getTag());
+                Intent intent = new Intent(context, FindActivity.class);
+                intent.putExtras(bundle);
+                context.startActivity(intent);
+            }
+        });
         holder.itemHomeRvTvOne.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -69,6 +79,16 @@ public class FenLeiAdapter extends RecyclerView.Adapter<FenLeiAdapter.ViewHolder
         holder.itemHomeRvCiTwo.setImageResource(list.get(3 * position + 1).getImgID());
         holder.itemHomeRvTvTwo.setTag(list.get(3 * position + 1).getName());
         holder.itemHomeRvTvTwo.setText(list.get(3 * position + 1).getName());
+        holder.itemHomeRvCiTwo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Bundle bundle = new Bundle();
+                bundle.putString("pass", (String) holder.itemHomeRvTvTwo.getTag());
+                Intent intent = new Intent(context, FindActivity.class);
+                intent.putExtras(bundle);
+                context.startActivity(intent);
+            }
+        });
         holder.itemHomeRvTvTwo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -82,6 +102,24 @@ public class FenLeiAdapter extends RecyclerView.Adapter<FenLeiAdapter.ViewHolder
         holder.itemHomeRvCiThree.setImageResource(list.get(3 * position + 2).getImgID());
         holder.itemHomeRvTvThree.setTag(list.get(3 * position + 2).getName());
         holder.itemHomeRvTvThree.setText(list.get(3 * position + 2).getName());
+        holder.itemHomeRvCiThree.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (((String) v.getTag()).equals("更多")) {
+                    Bundle bundle = new Bundle();
+                    bundle.putString("pass", (String) holder.itemHomeRvTvThree.getTag());
+                    Intent intent = new Intent(context, MoreActivity.class);
+                    intent.putExtras(bundle);
+                    context.startActivity(intent);
+                } else {
+                    Bundle bundle = new Bundle();
+                    bundle.putString("pass", (String) v.getTag());
+                    Intent intent = new Intent(context, FindActivity.class);
+                    intent.putExtras(bundle);
+                    context.startActivity(intent);
+                }
+            }
+        });
         holder.itemHomeRvTvThree.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
